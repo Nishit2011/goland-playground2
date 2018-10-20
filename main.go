@@ -47,5 +47,10 @@ func main() {
 			zipCode: 000000,
 		},
 	}
-	fmt.Printf("%+v", jim)
+	jim.print()
+}
+
+//creating a receiver on p of type person
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
