@@ -50,8 +50,11 @@ func main() {
 
 	//& operator followed by a variable name gives the memory address of the value the variable is pointing at
 	//below jimPointer will have the memory location of value stored for variable jim
-	jimPointer := &jim
-	jimPointer.updateName("jimmy")
+
+	//we dont need to specify and store pointer location as done in
+	//previous case on jimPointer. Rather, we can call updateName method on jim type person
+	//and since the reciver already handles pointer type, goland would fetch the memory location of jim for us
+	jim.updateName("jimmy")
 	jim.print()
 }
 
@@ -66,11 +69,11 @@ func (pointerToPerson *person) updateName(newFirstName string) {
 }
 
 //creating a receiver on p of type person
-// func (p person) print() {
-// 	fmt.Printf("%+v", p)
-// }
-
-//creating a receiver on pointer
-func (p *person) print() {
+func (p person) print() {
 	fmt.Printf("%+v", p)
 }
+
+//creating a receiver on pointer
+// func (p *person) print() {
+// 	fmt.Printf("%+v", p)
+// }
