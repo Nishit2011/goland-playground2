@@ -24,7 +24,7 @@ Used 99% of the time for lists of elements
 
 
 Whenever a SLice is created, Go creates two separate data structures
-First is Slice that has 3 separate data structure pointers, capacity, length.
+An array and a structure that records the length of the slice, the capacity of the slice, and a reference to the underlying array
 When a slice is made, go makes array internally
 
 Value Type : Use pointers to change these things in a function
