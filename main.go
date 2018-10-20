@@ -47,10 +47,30 @@ func main() {
 			zipCode: 000000,
 		},
 	}
+
+	//& operator followed by a variable name gives the memory address of the value the variable is pointing at
+	//below jimPointer will have the memory location of value stored for variable jim
+	jimPointer := &jim
+	jimPointer.updateName("jimmy")
 	jim.print()
 }
 
+//*pointer gives the value located at the memory address
+//pointerToPerson gives the value at the  memory location of jimPointer
+
+//notice the receiver type is changed to pointer type i.e *person
+//so when this method is invoked the memory location of jimPointer is passed , and stored @ pointerToPerson whose type is *person
+func (pointerToPerson *person) updateName(newFirstName string) {
+	//below is an operator, it means we want to manipulate the value the pointer is referencing at
+	(*pointerToPerson).firstName = newFirstName
+}
+
 //creating a receiver on p of type person
-func (p person) print() {
+// func (p person) print() {
+// 	fmt.Printf("%+v", p)
+// }
+
+//creating a receiver on pointer
+func (p *person) print() {
 	fmt.Printf("%+v", p)
 }
