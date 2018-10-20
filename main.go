@@ -2,9 +2,16 @@ package main
 
 import "fmt"
 
+type contactInfo struct {
+	email   string
+	zipCode int
+}
+
 type person struct {
 	firstName string
 	lastName  string
+	//nesting contactInfo struct inside person struct
+	contact contactInfo
 }
 
 func main() {
@@ -25,11 +32,20 @@ func main() {
 	// fmt.Println(alex)
 
 	//another way to declare structs
-	var alex person
-	alex.firstName = "Alex"
-	alex.lastName = "Anderson"
-	fmt.Println(alex)
+	// var alex person
+	// alex.firstName = "Alex"
+	// alex.lastName = "Anderson"
+	// fmt.Println(alex)
 	//another way to log structs
-	fmt.Printf("%+v", alex)
+	//fmt.Printf("%+v", alex)
 
+	jim := person{
+		firstName: "Jim",
+		lastName:  "Party",
+		contact: contactInfo{
+			email:   "jim@gmail.com",
+			zipCode: 000000,
+		},
+	}
+	fmt.Printf("%+v", jim)
 }
